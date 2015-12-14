@@ -12,7 +12,7 @@ describe Monologue::Admin::PostsController do
     let(:new_content) { 'This is the new content, for real!' }
     let(:new_title) { 'nothing to do, I find it awesome!' }
 
-    context :valid do
+    context "valid" do
       before do
         put :update,
           id: post.id,
@@ -26,12 +26,7 @@ describe Monologue::Admin::PostsController do
 
       it { expect(post.content).to eq new_content }
       it { expect(post.title).to eq new_title }
-      it { expect(post.published).to be_false }
+      it { expect(post.published).to be false }
     end
-
-    # context :invalid do
-    #   before do
-    #   end
-    # end
   end
 end

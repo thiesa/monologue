@@ -23,7 +23,7 @@ describe "preview" do
   end
 
   context "admin section" do
-    it "clicks preview link", :js=>true do
+    it "clicks preview link", js: true do
       log_in
       visit admin_path
       click_on @post_title
@@ -45,7 +45,7 @@ describe "preview" do
 
     end
 
-    it "Close Preview", :js=>true do
+    it "Close Preview", js: true do
       log_in
       visit admin_path
       click_on @post_title

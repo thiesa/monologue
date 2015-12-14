@@ -9,22 +9,21 @@ describe Monologue::User do
     let(:user_without_post) { stub_model(Monologue::User) }
     let(:user_with_post) do
       user = stub_model(Monologue::User)
-      user.stub(:posts => [stub_model(Monologue::Post)])
+      user.stub(posts: [stub_model(Monologue::Post)])
       user
     end
-
     let(:user) { Monologue::User.new }
 
     it "should be able to delete another user that does not have any posts" do
-      user.can_delete?(user_without_post).should be_true
+      user.can_delete?(user_without_post).should be true
     end
 
     it "should not be able to delete itself" do
-      user.can_delete?(user).should be_false
+      user.can_delete?(user).should be false
     end
 
     it "should not be able to delete a user with posts" do
-      user.can_delete?(user_with_post).should be_false
+      user.can_delete?(user_with_post).should be false
     end
   end
 
